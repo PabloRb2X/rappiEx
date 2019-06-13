@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,6 +19,8 @@
 		9AF33FC022B2C57B0056BFA4 /* RappiExUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF33FBF22B2C57B0056BFA4 /* RappiExUITests.swift */; };
 		9AF3401522B3060B0056BFA4 /* ApiTheMovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF3401322B305EC0056BFA4 /* ApiTheMovieDB.framework */; };
 		9AF3401622B3060B0056BFA4 /* ApiTheMovieDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF3401322B305EC0056BFA4 /* ApiTheMovieDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9AF3401A22B311F80056BFA4 /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AF3401922B311F80056BFA4 /* MainCell.xib */; };
+		9AF3401C22B312070056BFA4 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3401B22B312070056BFA4 /* MainCell.swift */; };
 		BBF89B447209CA2B0E255B3F /* Pods_RappiExTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B12E69A382D225F92FBDEECD /* Pods_RappiExTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +78,8 @@
 		9AF33FBF22B2C57B0056BFA4 /* RappiExUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappiExUITests.swift; sourceTree = "<group>"; };
 		9AF33FC122B2C57B0056BFA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AF3401322B305EC0056BFA4 /* ApiTheMovieDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiTheMovieDB.framework; sourceTree = "<group>"; };
+		9AF3401922B311F80056BFA4 /* MainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
+		9AF3401B22B312070056BFA4 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		B12E69A382D225F92FBDEECD /* Pods_RappiExTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiExTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD76DE3AC598FBDC44C23093 /* Pods-RappiExTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiExTests.release.xcconfig"; path = "Target Support Files/Pods-RappiExTests/Pods-RappiExTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,7 +123,6 @@
 				272D05CCBFF75CDA1EB0EAD8 /* Pods-RappiExUITests.debug.xcconfig */,
 				01AA8F8CDB0E247B4AA814B4 /* Pods-RappiExUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -198,6 +201,7 @@
 		9AF33FCF22B2C7EB0056BFA4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9AF33F9E22B2C5790056BFA4 /* MainController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,9 +209,18 @@
 		9AF33FD022B2C7F30056BFA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				9AF33F9E22B2C5790056BFA4 /* MainController.swift */,
+				9AF3401822B311E50056BFA4 /* MainView */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9AF3401822B311E50056BFA4 /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				9AF3401922B311F80056BFA4 /* MainCell.xib */,
+				9AF3401B22B312070056BFA4 /* MainCell.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 		CD86EBC53B3018776EFCB65B /* Frameworks */ = {
@@ -333,6 +346,7 @@
 			files = (
 				9AF33FAA22B2C57A0056BFA4 /* LaunchScreen.storyboard in Resources */,
 				9AF33FA722B2C57A0056BFA4 /* Assets.xcassets in Resources */,
+				9AF3401A22B311F80056BFA4 /* MainCell.xib in Resources */,
 				9AF33FA222B2C5790056BFA4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -480,6 +494,7 @@
 			files = (
 				9AF33FA522B2C5790056BFA4 /* RappiEx.xcdatamodeld in Sources */,
 				9AF33F9F22B2C5790056BFA4 /* MainController.swift in Sources */,
+				9AF3401C22B312070056BFA4 /* MainCell.swift in Sources */,
 				9AF33F9D22B2C5790056BFA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
