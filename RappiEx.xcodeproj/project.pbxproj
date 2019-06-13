@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		052D1E81C404167FFB078FD3 /* Pods_RappiExUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10EAEA6E5BD0B35E2001597E /* Pods_RappiExUITests.framework */; };
+		5C6309ECD1149C136F59FE8B /* Pods_RappiEx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9141037B743BA78F3B7EF176 /* Pods_RappiEx.framework */; };
 		9AF33F9D22B2C5790056BFA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF33F9C22B2C5790056BFA4 /* AppDelegate.swift */; };
-		9AF33F9F22B2C5790056BFA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF33F9E22B2C5790056BFA4 /* ViewController.swift */; };
+		9AF33F9F22B2C5790056BFA4 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF33F9E22B2C5790056BFA4 /* MainController.swift */; };
 		9AF33FA222B2C5790056BFA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF33FA022B2C5790056BFA4 /* Main.storyboard */; };
 		9AF33FA522B2C5790056BFA4 /* RappiEx.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AF33FA322B2C5790056BFA4 /* RappiEx.xcdatamodeld */; };
 		9AF33FA722B2C57A0056BFA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AF33FA622B2C57A0056BFA4 /* Assets.xcassets */; };
 		9AF33FAA22B2C57A0056BFA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF33FA822B2C57A0056BFA4 /* LaunchScreen.storyboard */; };
 		9AF33FB522B2C57B0056BFA4 /* RappiExTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF33FB422B2C57B0056BFA4 /* RappiExTests.swift */; };
 		9AF33FC022B2C57B0056BFA4 /* RappiExUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF33FBF22B2C57B0056BFA4 /* RappiExUITests.swift */; };
+		9AF3401522B3060B0056BFA4 /* ApiTheMovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF3401322B305EC0056BFA4 /* ApiTheMovieDB.framework */; };
+		9AF3401622B3060B0056BFA4 /* ApiTheMovieDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF3401322B305EC0056BFA4 /* ApiTheMovieDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		BBF89B447209CA2B0E255B3F /* Pods_RappiExTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B12E69A382D225F92FBDEECD /* Pods_RappiExTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,10 +39,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9AF3401722B3060B0056BFA4 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9AF3401622B3060B0056BFA4 /* ApiTheMovieDB.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		01AA8F8CDB0E247B4AA814B4 /* Pods-RappiExUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiExUITests.release.xcconfig"; path = "Target Support Files/Pods-RappiExUITests/Pods-RappiExUITests.release.xcconfig"; sourceTree = "<group>"; };
+		10EAEA6E5BD0B35E2001597E /* Pods_RappiExUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiExUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		156FA7D650B2770C18BD2E80 /* Pods-RappiExTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiExTests.debug.xcconfig"; path = "Target Support Files/Pods-RappiExTests/Pods-RappiExTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2386F469D95A00B69A3216A7 /* Pods-RappiEx.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiEx.debug.xcconfig"; path = "Target Support Files/Pods-RappiEx/Pods-RappiEx.debug.xcconfig"; sourceTree = "<group>"; };
+		272D05CCBFF75CDA1EB0EAD8 /* Pods-RappiExUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiExUITests.debug.xcconfig"; path = "Target Support Files/Pods-RappiExUITests/Pods-RappiExUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8CC7476AD9953679DCD54392 /* Pods-RappiEx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiEx.release.xcconfig"; path = "Target Support Files/Pods-RappiEx/Pods-RappiEx.release.xcconfig"; sourceTree = "<group>"; };
+		9141037B743BA78F3B7EF176 /* Pods_RappiEx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiEx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF33F9922B2C5790056BFA4 /* RappiEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RappiEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF33F9C22B2C5790056BFA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9AF33F9E22B2C5790056BFA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9AF33F9E22B2C5790056BFA4 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
 		9AF33FA122B2C5790056BFA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9AF33FA422B2C5790056BFA4 /* RappiEx.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RappiEx.xcdatamodel; sourceTree = "<group>"; };
 		9AF33FA622B2C57A0056BFA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +75,9 @@
 		9AF33FBB22B2C57B0056BFA4 /* RappiExUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RappiExUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF33FBF22B2C57B0056BFA4 /* RappiExUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RappiExUITests.swift; sourceTree = "<group>"; };
 		9AF33FC122B2C57B0056BFA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AF3401322B305EC0056BFA4 /* ApiTheMovieDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiTheMovieDB.framework; sourceTree = "<group>"; };
+		B12E69A382D225F92FBDEECD /* Pods_RappiExTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiExTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD76DE3AC598FBDC44C23093 /* Pods-RappiExTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiExTests.release.xcconfig"; path = "Target Support Files/Pods-RappiExTests/Pods-RappiExTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +85,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AF3401522B3060B0056BFA4 /* ApiTheMovieDB.framework in Frameworks */,
+				5C6309ECD1149C136F59FE8B /* Pods_RappiEx.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBF89B447209CA2B0E255B3F /* Pods_RappiExTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +102,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				052D1E81C404167FFB078FD3 /* Pods_RappiExUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5916C7C3A3AAB11984374992 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2386F469D95A00B69A3216A7 /* Pods-RappiEx.debug.xcconfig */,
+				8CC7476AD9953679DCD54392 /* Pods-RappiEx.release.xcconfig */,
+				156FA7D650B2770C18BD2E80 /* Pods-RappiExTests.debug.xcconfig */,
+				BD76DE3AC598FBDC44C23093 /* Pods-RappiExTests.release.xcconfig */,
+				272D05CCBFF75CDA1EB0EAD8 /* Pods-RappiExUITests.debug.xcconfig */,
+				01AA8F8CDB0E247B4AA814B4 /* Pods-RappiExUITests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9AF33F9022B2C5790056BFA4 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +130,8 @@
 				9AF33FB322B2C57B0056BFA4 /* RappiExTests */,
 				9AF33FBE22B2C57B0056BFA4 /* RappiExUITests */,
 				9AF33F9A22B2C5790056BFA4 /* Products */,
+				5916C7C3A3AAB11984374992 /* Pods */,
+				CD86EBC53B3018776EFCB65B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,9 +148,11 @@
 		9AF33F9B22B2C5790056BFA4 /* RappiEx */ = {
 			isa = PBXGroup;
 			children = (
-				9AF33FCD22B2C5FA0056BFA4 /* Service */,
+				9AF33FD022B2C7F30056BFA4 /* Views */,
+				9AF33FCF22B2C7EB0056BFA4 /* Controller */,
+				9AF33FCE22B2C7DD0056BFA4 /* Utils */,
+				9AF33FCD22B2C5FA0056BFA4 /* Internal Frameworks */,
 				9AF33F9C22B2C5790056BFA4 /* AppDelegate.swift */,
-				9AF33F9E22B2C5790056BFA4 /* ViewController.swift */,
 				9AF33FA022B2C5790056BFA4 /* Main.storyboard */,
 				9AF33FA622B2C57A0056BFA4 /* Assets.xcassets */,
 				9AF33FA822B2C57A0056BFA4 /* LaunchScreen.storyboard */,
@@ -129,11 +180,44 @@
 			path = RappiExUITests;
 			sourceTree = "<group>";
 		};
-		9AF33FCD22B2C5FA0056BFA4 /* Service */ = {
+		9AF33FCD22B2C5FA0056BFA4 /* Internal Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9AF3401322B305EC0056BFA4 /* ApiTheMovieDB.framework */,
+			);
+			path = "Internal Frameworks";
+			sourceTree = "<group>";
+		};
+		9AF33FCE22B2C7DD0056BFA4 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Service;
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9AF33FCF22B2C7EB0056BFA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9AF33FD022B2C7F30056BFA4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9AF33F9E22B2C5790056BFA4 /* MainController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CD86EBC53B3018776EFCB65B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9141037B743BA78F3B7EF176 /* Pods_RappiEx.framework */,
+				B12E69A382D225F92FBDEECD /* Pods_RappiExTests.framework */,
+				10EAEA6E5BD0B35E2001597E /* Pods_RappiExUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +227,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9AF33FC422B2C57B0056BFA4 /* Build configuration list for PBXNativeTarget "RappiEx" */;
 			buildPhases = (
+				82F4905FCBEC03214A631038 /* [CP] Check Pods Manifest.lock */,
 				9AF33F9522B2C5790056BFA4 /* Sources */,
 				9AF33F9622B2C5790056BFA4 /* Frameworks */,
 				9AF33F9722B2C5790056BFA4 /* Resources */,
+				9AF3401722B3060B0056BFA4 /* Embed Frameworks */,
+				4B295C35EEA7E5A493B85804 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -160,9 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9AF33FC722B2C57B0056BFA4 /* Build configuration list for PBXNativeTarget "RappiExTests" */;
 			buildPhases = (
+				F2B573B7DD35635FB42F5047 /* [CP] Check Pods Manifest.lock */,
 				9AF33FAC22B2C57B0056BFA4 /* Sources */,
 				9AF33FAD22B2C57B0056BFA4 /* Frameworks */,
 				9AF33FAE22B2C57B0056BFA4 /* Resources */,
+				01D0DC652CB43E15C581315D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,9 +267,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9AF33FCA22B2C57B0056BFA4 /* Build configuration list for PBXNativeTarget "RappiExUITests" */;
 			buildPhases = (
+				A59FFA8F50257CFA8E30FB9A /* [CP] Check Pods Manifest.lock */,
 				9AF33FB722B2C57B0056BFA4 /* Sources */,
 				9AF33FB822B2C57B0056BFA4 /* Frameworks */,
 				9AF33FB922B2C57B0056BFA4 /* Resources */,
+				BB91E9FA48C6A87E75AF8F42 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -262,13 +353,133 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		01D0DC652CB43E15C581315D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RappiExTests/Pods-RappiExTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RappiExTests/Pods-RappiExTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RappiExTests/Pods-RappiExTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4B295C35EEA7E5A493B85804 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RappiEx/Pods-RappiEx-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RappiEx/Pods-RappiEx-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RappiEx/Pods-RappiEx-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		82F4905FCBEC03214A631038 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RappiEx-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A59FFA8F50257CFA8E30FB9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RappiExUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB91E9FA48C6A87E75AF8F42 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RappiExUITests/Pods-RappiExUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RappiExUITests/Pods-RappiExUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RappiExUITests/Pods-RappiExUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2B573B7DD35635FB42F5047 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RappiExTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9AF33F9522B2C5790056BFA4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9AF33FA522B2C5790056BFA4 /* RappiEx.xcdatamodeld in Sources */,
-				9AF33F9F22B2C5790056BFA4 /* ViewController.swift in Sources */,
+				9AF33F9F22B2C5790056BFA4 /* MainController.swift in Sources */,
 				9AF33F9D22B2C5790056BFA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -442,10 +653,16 @@
 		};
 		9AF33FC522B2C57B0056BFA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2386F469D95A00B69A3216A7 /* Pods-RappiEx.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V66CC3JPDJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RappiEx/Internal\\ Frameworks",
+					"$(PROJECT_DIR)/RappiEx/Internal\\ Frameworks",
+				);
 				INFOPLIST_FILE = RappiEx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,10 +677,16 @@
 		};
 		9AF33FC622B2C57B0056BFA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8CC7476AD9953679DCD54392 /* Pods-RappiEx.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = V66CC3JPDJ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/RappiEx/Internal\\ Frameworks",
+					"$(PROJECT_DIR)/RappiEx/Internal\\ Frameworks",
+				);
 				INFOPLIST_FILE = RappiEx/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -478,6 +701,7 @@
 		};
 		9AF33FC822B2C57B0056BFA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 156FA7D650B2770C18BD2E80 /* Pods-RappiExTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -499,6 +723,7 @@
 		};
 		9AF33FC922B2C57B0056BFA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD76DE3AC598FBDC44C23093 /* Pods-RappiExTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +745,7 @@
 		};
 		9AF33FCB22B2C57B0056BFA4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 272D05CCBFF75CDA1EB0EAD8 /* Pods-RappiExUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -540,6 +766,7 @@
 		};
 		9AF33FCC22B2C57B0056BFA4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01AA8F8CDB0E247B4AA814B4 /* Pods-RappiExUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

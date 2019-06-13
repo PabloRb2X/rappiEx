@@ -1,0 +1,11 @@
+framework module ApiTheMovieDB {
+  umbrella header "ApiTheMovieDB.h"
+
+  export *
+  module * { export * }
+}
+
+module ApiTheMovieDB.Swift {
+    header "ApiTheMovieDB-Swift.h"
+    requires objc
+}
