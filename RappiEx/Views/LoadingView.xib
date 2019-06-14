@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingView" customModule="RappiEx" customModuleProvider="target">
+            <connections>
+                <outlet property="loadingView" destination="sUp-Qv-GXY" id="4ZM-AO-QdM"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OoD-71-1Bo">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sUp-Qv-GXY" userLabel="LoadingView">
+                    <rect key="frame" x="75" y="258" width="170" height="52"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Por favor espera" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPa-Uo-DBd">
+                            <rect key="frame" x="50" y="19.5" width="120" height="13.5"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jhz-O1-wHV">
+                            <rect key="frame" x="0.0" y="0.0" width="42" height="52"/>
+                            <subviews>
+                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="bGc-Jo-ddi">
+                                    <rect key="frame" x="11" y="16" width="20" height="20"/>
+                                </activityIndicatorView>
+                            </subviews>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="bGc-Jo-ddi" firstAttribute="centerY" secondItem="Jhz-O1-wHV" secondAttribute="centerY" id="YCd-OO-20j"/>
+                                <constraint firstItem="bGc-Jo-ddi" firstAttribute="centerX" secondItem="Jhz-O1-wHV" secondAttribute="centerX" id="jBU-TA-Xvs"/>
+                                <constraint firstItem="bGc-Jo-ddi" firstAttribute="top" secondItem="Jhz-O1-wHV" secondAttribute="top" constant="16" id="jpQ-oo-ORS"/>
+                                <constraint firstAttribute="width" constant="42" id="ro9-gD-yk6"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="dPa-Uo-DBd" secondAttribute="trailing" id="Czr-BS-8uQ"/>
+                        <constraint firstItem="Jhz-O1-wHV" firstAttribute="top" secondItem="sUp-Qv-GXY" secondAttribute="top" id="EZN-83-MIE"/>
+                        <constraint firstItem="dPa-Uo-DBd" firstAttribute="leading" secondItem="Jhz-O1-wHV" secondAttribute="trailing" constant="8" id="SCX-KM-75v"/>
+                        <constraint firstAttribute="bottom" secondItem="Jhz-O1-wHV" secondAttribute="bottom" id="Z77-xv-hBZ"/>
+                        <constraint firstItem="Jhz-O1-wHV" firstAttribute="leading" secondItem="sUp-Qv-GXY" secondAttribute="leading" id="iT3-4y-Czk"/>
+                        <constraint firstItem="Jhz-O1-wHV" firstAttribute="centerY" secondItem="dPa-Uo-DBd" secondAttribute="centerY" id="r2x-oN-SWg"/>
+                        <constraint firstAttribute="width" constant="170" id="w0F-XI-4vG"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="OoD-71-1Bo" secondAttribute="trailing" id="3Qg-py-0dw"/>
+                <constraint firstItem="sUp-Qv-GXY" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="9qZ-Ab-F8h"/>
+                <constraint firstItem="sUp-Qv-GXY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="jQd-uM-9OB"/>
+                <constraint firstItem="OoD-71-1Bo" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="sVu-MW-IEQ"/>
+                <constraint firstItem="OoD-71-1Bo" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="v0Y-vC-PKk"/>
+                <constraint firstItem="OoD-71-1Bo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="yM9-j2-4fs"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="138.40000000000001" y="130.88455772113943"/>
+        </view>
+    </objects>
+</document>

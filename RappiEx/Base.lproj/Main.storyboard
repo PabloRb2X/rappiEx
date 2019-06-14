@@ -34,12 +34,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="mNQ-JB-ada">
+                            <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="mNQ-JB-ada">
                                 <rect key="frame" x="0.0" y="64" width="320" height="56"/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IcD-K0-y3W">
+                                <rect key="frame" x="35" y="128" width="250" height="29"/>
+                                <segments>
+                                    <segment title="Popular"/>
+                                    <segment title="Top Rated"/>
+                                    <segment title="Upcoming"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlEvent:" destination="BYZ-38-t0r" eventType="valueChanged" id="rzB-Hq-snD"/>
+                                </connections>
+                            </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="b9c-ye-XXB">
-                                <rect key="frame" x="0.0" y="172" width="320" height="396"/>
+                                <rect key="frame" x="25" y="172" width="270" height="396"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="g1S-vb-Ri2">
                                     <size key="itemSize" width="50" height="50"/>
@@ -49,32 +60,27 @@
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IcD-K0-y3W">
-                                <rect key="frame" x="35" y="128" width="250" height="29"/>
-                                <segments>
-                                    <segment title="Popular"/>
-                                    <segment title="Top Rated"/>
-                                    <segment title="Upcoming"/>
-                                </segments>
-                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="b9c-ye-XXB" firstAttribute="top" secondItem="IcD-K0-y3W" secondAttribute="bottom" constant="16" id="0Oy-uT-FpB"/>
+                            <constraint firstItem="b9c-ye-XXB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="3ue-dH-Y0g"/>
                             <constraint firstItem="IcD-K0-y3W" firstAttribute="top" secondItem="mNQ-JB-ada" secondAttribute="bottom" constant="8" id="5d8-B1-wMn"/>
-                            <constraint firstItem="b9c-ye-XXB" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7a0-Uo-N7v"/>
                             <constraint firstItem="mNQ-JB-ada" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Bez-jJ-kDE"/>
                             <constraint firstItem="IcD-K0-y3W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="HE8-v4-hMW"/>
-                            <constraint firstItem="b9c-ye-XXB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KI9-fv-ygv"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IcD-K0-y3W" secondAttribute="trailing" constant="35" id="LGU-4g-hP1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b9c-ye-XXB" secondAttribute="trailing" constant="25" id="LmT-f5-AZg"/>
                             <constraint firstItem="mNQ-JB-ada" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Pbj-40-YOi"/>
-                            <constraint firstItem="b9c-ye-XXB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="U6B-DX-1Ck"/>
+                            <constraint firstItem="b9c-ye-XXB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="Zif-aF-1rZ"/>
                             <constraint firstItem="mNQ-JB-ada" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="p4n-XY-arj"/>
-                            <constraint firstItem="b9c-ye-XXB" firstAttribute="top" secondItem="IcD-K0-y3W" secondAttribute="bottom" constant="16" id="pq3-2L-wGk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="SXP-fJ-1oy"/>
                     <connections>
+                        <outlet property="mainCollectionView" destination="b9c-ye-XXB" id="dA9-vj-CRk"/>
+                        <outlet property="searchBar" destination="mNQ-JB-ada" id="E6K-Wy-gxn"/>
+                        <outlet property="segmentedControl" destination="IcD-K0-y3W" id="MAI-do-gFy"/>
                         <segue destination="76l-KL-K5a" kind="push" id="fDF-AY-ptF"/>
                     </connections>
                 </viewController>
@@ -89,14 +95,39 @@
                     <view key="view" contentMode="scaleToFill" id="dTR-Kz-hqV">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1rh-ts-Sys">
+                                <rect key="frame" x="8" y="72" width="304" height="488"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="The matrix revolutions, parte 3, super natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vBZ-am-XTm">
+                                        <rect key="frame" x="15" y="8" width="265" height="55"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZK-ky-ehz">
+                                        <rect key="frame" x="8" y="71" width="106" height="149"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.3294117647" green="0.33101454380000001" blue="0.33101454380000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nKa-KX-L3z" firstAttribute="bottom" secondItem="1rh-ts-Sys" secondAttribute="bottom" constant="8" id="7cW-HJ-npf"/>
+                            <constraint firstItem="1rh-ts-Sys" firstAttribute="top" secondItem="nKa-KX-L3z" secondAttribute="top" constant="8" id="HaY-Hh-gWf"/>
+                            <constraint firstItem="nKa-KX-L3z" firstAttribute="trailing" secondItem="1rh-ts-Sys" secondAttribute="trailing" constant="8" id="oXm-Ii-f6I"/>
+                            <constraint firstItem="1rh-ts-Sys" firstAttribute="leading" secondItem="nKa-KX-L3z" secondAttribute="leading" constant="8" id="t0J-gd-YXV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nKa-KX-L3z"/>
                     </view>
                     <navigationItem key="navigationItem" id="RWY-OF-YMh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EoC-UR-PEL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="396" y="-98"/>
+            <point key="canvasLocation" x="395.625" y="-98.239436619718305"/>
         </scene>
     </scenes>
 </document>

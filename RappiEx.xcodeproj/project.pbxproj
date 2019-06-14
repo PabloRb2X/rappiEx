@@ -21,6 +21,9 @@
 		9AF3401622B3060B0056BFA4 /* ApiTheMovieDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF3401322B305EC0056BFA4 /* ApiTheMovieDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9AF3401A22B311F80056BFA4 /* MainCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AF3401922B311F80056BFA4 /* MainCell.xib */; };
 		9AF3401C22B312070056BFA4 /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3401B22B312070056BFA4 /* MainCell.swift */; };
+		9AF3402322B440DB0056BFA4 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AF3402122B440DA0056BFA4 /* LoadingView.xib */; };
+		9AF3402422B440DB0056BFA4 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3402222B440DA0056BFA4 /* LoadingView.swift */; };
+		9AF3402622B44E070056BFA4 /* DetailMovieController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF3402522B44E070056BFA4 /* DetailMovieController.swift */; };
 		BBF89B447209CA2B0E255B3F /* Pods_RappiExTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B12E69A382D225F92FBDEECD /* Pods_RappiExTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +83,9 @@
 		9AF3401322B305EC0056BFA4 /* ApiTheMovieDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ApiTheMovieDB.framework; sourceTree = "<group>"; };
 		9AF3401922B311F80056BFA4 /* MainCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCell.xib; sourceTree = "<group>"; };
 		9AF3401B22B312070056BFA4 /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		9AF3402122B440DA0056BFA4 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		9AF3402222B440DA0056BFA4 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		9AF3402522B44E070056BFA4 /* DetailMovieController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieController.swift; sourceTree = "<group>"; };
 		B12E69A382D225F92FBDEECD /* Pods_RappiExTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiExTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD76DE3AC598FBDC44C23093 /* Pods-RappiExTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiExTests.release.xcconfig"; path = "Target Support Files/Pods-RappiExTests/Pods-RappiExTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -202,6 +208,7 @@
 			isa = PBXGroup;
 			children = (
 				9AF33F9E22B2C5790056BFA4 /* MainController.swift */,
+				9AF3402522B44E070056BFA4 /* DetailMovieController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -209,6 +216,8 @@
 		9AF33FD022B2C7F30056BFA4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9AF3402222B440DA0056BFA4 /* LoadingView.swift */,
+				9AF3402122B440DA0056BFA4 /* LoadingView.xib */,
 				9AF3401822B311E50056BFA4 /* MainView */,
 			);
 			path = Views;
@@ -348,6 +357,7 @@
 				9AF33FA722B2C57A0056BFA4 /* Assets.xcassets in Resources */,
 				9AF3401A22B311F80056BFA4 /* MainCell.xib in Resources */,
 				9AF33FA222B2C5790056BFA4 /* Main.storyboard in Resources */,
+				9AF3402322B440DB0056BFA4 /* LoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,8 +503,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AF33FA522B2C5790056BFA4 /* RappiEx.xcdatamodeld in Sources */,
+				9AF3402622B44E070056BFA4 /* DetailMovieController.swift in Sources */,
 				9AF33F9F22B2C5790056BFA4 /* MainController.swift in Sources */,
 				9AF3401C22B312070056BFA4 /* MainCell.swift in Sources */,
+				9AF3402422B440DB0056BFA4 /* LoadingView.swift in Sources */,
 				9AF33F9D22B2C5790056BFA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
