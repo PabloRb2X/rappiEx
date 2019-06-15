@@ -21,6 +21,9 @@ class MainController: UIViewController {
     
     let moviesViewModel: ServiceViewModel = ServiceViewModel()
     
+    var filter: [Result] = []
+    var isFilter = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -114,6 +117,9 @@ class MainController: UIViewController {
     }
     
     @IBAction func segmentedControlEvent(_ sender: UISegmentedControl) {
+        searchBar.text = ""
+        isFilter = false
+        filter.removeAll()
         
         getMoviesCollection()
     }
@@ -161,6 +167,10 @@ extension MainController: UICollectionViewDelegate{
 
 extension MainController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if isFilter{
+            return filter.count
+        }
+        
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             return popularMovies?.results.count ?? 0
@@ -181,22 +191,30 @@ extension MainController: UICollectionViewDataSource{
             var posterPath: String = ""
             var voteAverage: Double = 0.0
             
-            switch segmentedControl.selectedSegmentIndex{
-            case 0:
-                title = popularMovies?.results[indexPath.row].title ?? ""
-                posterPath = popularMovies?.results[indexPath.row].posterPath ?? ""
-                voteAverage = popularMovies?.results[indexPath.row].voteAverage ?? 0.0
-            case 1:
-                title = topRatedMovies?.results[indexPath.row].title ?? ""
-                posterPath = topRatedMovies?.results[indexPath.row].posterPath ?? ""
-                voteAverage = topRatedMovies?.results[indexPath.row].voteAverage ?? 0.0
-            case 2:
-                title = upcomingMovies?.results[indexPath.row].title ?? ""
-                posterPath = upcomingMovies?.results[indexPath.row].posterPath ?? ""
-                voteAverage = upcomingMovies?.results[indexPath.row].voteAverage ?? 0.0
-            default:
-                return cell
+            if isFilter{
+                title = filter[indexPath.row].title
+                posterPath = filter[indexPath.row].posterPath
+                voteAverage = filter[indexPath.row].voteAverage
             }
+            else{
+                switch segmentedControl.selectedSegmentIndex{
+                case 0:
+                    title = popularMovies?.results[indexPath.row].title ?? ""
+                    posterPath = popularMovies?.results[indexPath.row].posterPath ?? ""
+                    voteAverage = popularMovies?.results[indexPath.row].voteAverage ?? 0.0
+                case 1:
+                    title = topRatedMovies?.results[indexPath.row].title ?? ""
+                    posterPath = topRatedMovies?.results[indexPath.row].posterPath ?? ""
+                    voteAverage = topRatedMovies?.results[indexPath.row].voteAverage ?? 0.0
+                case 2:
+                    title = upcomingMovies?.results[indexPath.row].title ?? ""
+                    posterPath = upcomingMovies?.results[indexPath.row].posterPath ?? ""
+                    voteAverage = upcomingMovies?.results[indexPath.row].voteAverage ?? 0.0
+                default:
+                    return cell
+                }
+            }
+            
             
             cell.titleLabel.text = title
             cell.rankingLabel.text = "\(voteAverage)"
@@ -221,6 +239,41 @@ extension MainController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: mainCollectionView.frame.width * 0.48, height: mainCollectionView.frame.height * 0.5)
     }
 
+}
+
+extension MainController: UISearchBarDelegate{
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        isFilter = true
+        
+        if searchBar.text != ""{
+            
+            switch segmentedControl.selectedSegmentIndex{
+            case 0:
+                filter = popularMovies?.results.filter{ $0.title.contains(searchBar.text!) } ?? []
+            case 1:
+                filter = topRatedMovies?.results.filter{ $0.title.contains(searchBar.text!) } ?? []
+            case 2:
+                filter = upcomingMovies?.results.filter{ $0.title.contains(searchBar.text!) } ?? []
+            default:
+                break
+            }
+            
+            if filter.count > 0{
+                mainCollectionView.reloadData()
+            }
+            else{
+                filter.removeAll()
+                mainCollectionView.reloadData()
+            }
+        }
+        else{
+            isFilter = false
+            filter.removeAll()
+            
+            getMoviesCollection()
+        }
+        
+    }
 }
 
 extension UIViewController{
