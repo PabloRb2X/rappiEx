@@ -258,13 +258,7 @@ extension MainController: UISearchBarDelegate{
                 break
             }
             
-            if filter.count > 0{
-                mainCollectionView.reloadData()
-            }
-            else{
-                filter.removeAll()
-                mainCollectionView.reloadData()
-            }
+            mainCollectionView.reloadData()
         }
         else{
             isFilter = false
