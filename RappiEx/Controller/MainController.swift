@@ -9,6 +9,8 @@
 import UIKit
 import ApiTheMovieDB
 
+let userdefaults: UserDefaults = UserDefaults()
+
 class MainController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
@@ -23,6 +25,7 @@ class MainController: UIViewController {
     
     var filter: [Result] = []
     var isFilter = false
+    var isSuccessSerive = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -96,10 +99,16 @@ class MainController: UIViewController {
             switch type {
             case "popular":
                 self.popularMovies = response
+                
+                userdefaults.set(self.popularMovies, forKey: "popularMovies")
             case "top_rated":
                 self.topRatedMovies = response
+                
+                userdefaults.set(self.topRatedMovies, forKey: "topRatedMovies")
             case "upcoming":
                 self.upcomingMovies = response
+                
+                userdefaults.set(self.upcomingMovies, forKey: "upcomingMovies")
             default:
                 break
             }
@@ -113,6 +122,29 @@ class MainController: UIViewController {
             self.dismissLoadingView()
             
             print("Error en el servicio")
+            
+            switch self.segmentedControl.selectedSegmentIndex {
+            case 0:
+                if let popularMoviesObject = userdefaults.object(forKey: "popularMovies") as? MoviesResponse{
+                    self.popularMovies = popularMoviesObject
+                    
+                    self.mainCollectionView.reloadData()
+                }
+            case 1:
+                if let topRatedMoviesObject = userdefaults.object(forKey: "topRatedMovies") as? MoviesResponse{
+                    self.topRatedMovies = topRatedMoviesObject
+                    
+                    self.mainCollectionView.reloadData()
+                }
+            case 2:
+                if let upcomingMoviesObject = userdefaults.object(forKey: "upcomingMovies") as? MoviesResponse{
+                    self.upcomingMovies = upcomingMoviesObject
+                    
+                    self.mainCollectionView.reloadData()
+                }
+            default:
+                print("")
+            }
         }
     }
     
