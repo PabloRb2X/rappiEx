@@ -21,21 +21,32 @@ class MainController: UIViewController {
     var topRatedMovies: MoviesResponse?
     var upcomingMovies:  MoviesResponse?
     
+    var searchMovies: SearchMovieResponse?
+    var isSearching = false
+    
     let moviesViewModel: ServiceViewModel = ServiceViewModel()
     
     var filter: [Result] = []
     var isFilter = false
-    var isSuccessSerive = false
+    
+    var refresher: UIRefreshControl!
+    
+    var detailMovie: DetailMovies!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        self.title = "Movie App"
+        //self.title = "Movie App"
         
         mainCollectionView.register(UINib(nibName: "MainCell", bundle: nil), forCellWithReuseIdentifier: "myCell")
         mainCollectionView.delegate = self
         mainCollectionView.dataSource = self
+        
+        refresher = UIRefreshControl()
+        mainCollectionView.alwaysBounceVertical = true
+        refresher.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        mainCollectionView.addSubview(refresher)
         
         if let layout = mainCollectionView.collectionViewLayout as?
             UICollectionViewFlowLayout{
@@ -48,6 +59,26 @@ class MainController: UIViewController {
         super.viewDidAppear(true)
         
         getMoviesCollection()
+    }
+    
+    @objc func loadData(){
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            popularMovies = nil
+        case 1:
+            topRatedMovies = nil
+        case 2:
+            upcomingMovies = nil
+        default:
+            break
+        }
+        
+        getMoviesCollection()
+        stopRefresher()
+    }
+    
+    func stopRefresher() {
+        self.refresher.endRefreshing()
     }
     
     func getMoviesCollection(){
@@ -81,10 +112,47 @@ class MainController: UIViewController {
                 }
             }
         default:
-            
+            segmentedControl.selectedSegmentIndex = 0
+            if popularMovies == nil{
+                startService(type: "popular")
+            }
+            else{
+                DispatchQueue.main.async {
+                    self.mainCollectionView.reloadData()
+                }
+            }
             break
         }
+    }
+    
+    func searchService(text: String){
         
+        if text.isEmpty{
+            return
+        }
+        
+        isSearching = true
+        self.showLoadingView()
+        
+        moviesViewModel.performSearchMovieService(movie: text)
+        moviesViewModel.onSuccessSearchMovieService = {(_ response: SearchMovieResponse) -> Void in
+            self.dismissLoadingView()
+            
+            self.searchMovies = response
+            
+            self.segmentedControl.selectedSegmentIndex = -1
+            
+            DispatchQueue.main.async {
+                
+                self.mainCollectionView.reloadData()
+            }
+        }
+        moviesViewModel.onServiceError = {(_ error: ServiceError)  -> Void in
+            self.dismissLoadingView()
+            
+            print("Error en el servicio")
+            self.showErrorConectionAlert(message: "Verifica tu conexión a internet.")
+        }
     }
     
     func startService(type: String){
@@ -100,15 +168,15 @@ class MainController: UIViewController {
             case "popular":
                 self.popularMovies = response
                 
-                userdefaults.set(self.popularMovies, forKey: "popularMovies")
+                self.saveObject(nameObject: "popularMovies", response: self.popularMovies!)
             case "top_rated":
                 self.topRatedMovies = response
                 
-                userdefaults.set(self.topRatedMovies, forKey: "topRatedMovies")
+                self.saveObject(nameObject: "topRatedMovies", response: self.topRatedMovies!)
             case "upcoming":
                 self.upcomingMovies = response
                 
-                userdefaults.set(self.upcomingMovies, forKey: "upcomingMovies")
+                self.saveObject(nameObject: "upcomingMovies", response: self.upcomingMovies!)
             default:
                 break
             }
@@ -149,11 +217,26 @@ class MainController: UIViewController {
     }
     
     @IBAction func segmentedControlEvent(_ sender: UISegmentedControl) {
+        isSearching = false
+        searchMovies = nil
+        
         searchBar.text = ""
         isFilter = false
         filter.removeAll()
         
         getMoviesCollection()
+    }
+
+    func saveObject(nameObject: String, response: MoviesResponse){
+        do{
+            let data = try NSKeyedArchiver.archivedData(withRootObject: response, requiringSecureCoding: false)
+            
+            userdefaults.set(data, forKey: nameObject)
+        }
+        catch let error{
+            print(error)
+        }
+        
     }
     
     func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
@@ -170,30 +253,70 @@ class MainController: UIViewController {
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let detailController = segue.destination as? DetailMovieController{
-//
-//        }
-//    }
+    @IBAction func searchOnlineAction(_ sender: Any) {
+        let alert = UIAlertController(title: "Búsqueda Online", message: "Escribe el nombre de la película a buscar", preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Buscar", style: .default,
+                                       handler: { (action:UIAlertAction) -> Void in
+                                        
+            let textField = alert.textFields!.first
+                                        
+            self.searchService(text: textField?.text ?? "")
+        })
+        
+        let cancelAction = UIAlertAction(title: "Cancelar", style: .default) { (action: UIAlertAction) -> Void in
+            
+        }
+        
+        alert.addTextField { (textField: UITextField) -> Void in
+            
+        }
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func showErrorConectionAlert(message: String){
+         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let detailController = segue.destination as? DetailMovieController{
+            detailController.detailMovie = detailMovie
+        }
+    }
 }
 
 extension MainController: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let detailController = DetailMovieController()
+        guard let cell = collectionView.cellForItem(at: indexPath) as? MainCell else {return}
         
-        switch segmentedControl.selectedSegmentIndex{
-        case 0:
-            detailController.detailMovie = DetailMovies(titleMovie: popularMovies?.results[indexPath.row].title, voteAverage: "\(String(describing: popularMovies?.results[indexPath.row].voteAverage))", originalLanguage: popularMovies?.results[indexPath.row].originalLanguage, overview: popularMovies?.results[indexPath.row].overview, releaseDate: popularMovies?.results[indexPath.row].releaseDate)
-        case 1:
-            detailController.detailMovie = DetailMovies(titleMovie: topRatedMovies?.results[indexPath.row].title, voteAverage: "\(String(describing: topRatedMovies?.results[indexPath.row].voteAverage))", originalLanguage: topRatedMovies?.results[indexPath.row].originalLanguage, overview: topRatedMovies?.results[indexPath.row].overview, releaseDate: topRatedMovies?.results[indexPath.row].releaseDate)
-        case 2:
-            detailController.detailMovie = DetailMovies(titleMovie: upcomingMovies?.results[indexPath.row].title, voteAverage: "\(String(describing: upcomingMovies?.results[indexPath.row].voteAverage))", originalLanguage: upcomingMovies?.results[indexPath.row].originalLanguage, overview: upcomingMovies?.results[indexPath.row].overview, releaseDate: upcomingMovies?.results[indexPath.row].releaseDate)
-        default:
-            break
+        //let detailController = DetailMovieController()
+        
+        if isSearching{
+            detailMovie = DetailMovies(titleMovie: searchMovies?.results[indexPath.row].title ?? "", voteAverage: "\(String(describing: searchMovies?.results[indexPath.row].voteAverage ?? 0.0))", originalLanguage: searchMovies?.results[indexPath.row].originalLanguage ?? "", overview: searchMovies?.results[indexPath.row].overview ?? "", releaseDate: searchMovies?.results[indexPath.row].releaseDate ?? "", image: cell.movieImage.image!)
+        }
+        else{
+            switch segmentedControl.selectedSegmentIndex{
+            case 0:
+                detailMovie = DetailMovies(titleMovie: popularMovies?.results[indexPath.row].title ?? "", voteAverage: "\(String(describing: popularMovies?.results[indexPath.row].voteAverage ?? 0.0))", originalLanguage: popularMovies?.results[indexPath.row].originalLanguage ?? "", overview: popularMovies?.results[indexPath.row].overview ?? "", releaseDate: popularMovies?.results[indexPath.row].releaseDate ?? "", image: cell.movieImage.image!)
+            case 1:
+                detailMovie = DetailMovies(titleMovie: topRatedMovies?.results[indexPath.row].title ?? "", voteAverage: "\(String(describing: topRatedMovies?.results[indexPath.row].voteAverage ?? 0.0))", originalLanguage: topRatedMovies?.results[indexPath.row].originalLanguage ?? "", overview: topRatedMovies?.results[indexPath.row].overview ?? "", releaseDate: topRatedMovies?.results[indexPath.row].releaseDate ?? "", image: cell.movieImage.image!)
+            case 2:
+                detailMovie = DetailMovies(titleMovie: upcomingMovies?.results[indexPath.row].title ?? "", voteAverage: "\(String(describing: upcomingMovies?.results[indexPath.row].voteAverage ?? 0.0))", originalLanguage: upcomingMovies?.results[indexPath.row].originalLanguage ?? "", overview: upcomingMovies?.results[indexPath.row].overview ?? "", releaseDate: upcomingMovies?.results[indexPath.row].releaseDate ?? "", image: cell.movieImage.image!)
+            default:
+                
+                break
+            }
         }
         
-        self.navigationController?.pushViewController(detailController, animated: true)
+        //self.navigationController?.pushViewController(detailController, animated: true)
+        self.performSegue(withIdentifier: "detailSegue", sender: nil)
     }
 }
 
@@ -201,6 +324,10 @@ extension MainController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if isFilter{
             return filter.count
+        }
+        
+        if isSearching{
+            return searchMovies?.results.count ?? 0
         }
         
         switch segmentedControl.selectedSegmentIndex {
@@ -228,6 +355,11 @@ extension MainController: UICollectionViewDataSource{
                 posterPath = filter[indexPath.row].posterPath
                 voteAverage = filter[indexPath.row].voteAverage
             }
+            else if isSearching{
+                title = searchMovies?.results[indexPath.row].title ?? ""
+                posterPath = searchMovies?.results[indexPath.row].posterPath ?? ""
+                voteAverage = searchMovies?.results[indexPath.row].voteAverage ?? 0.0
+            }
             else{
                 switch segmentedControl.selectedSegmentIndex{
                 case 0:
@@ -246,7 +378,6 @@ extension MainController: UICollectionViewDataSource{
                     return cell
                 }
             }
-            
             
             cell.titleLabel.text = title
             cell.rankingLabel.text = "\(voteAverage)"
@@ -279,16 +410,22 @@ extension MainController: UISearchBarDelegate{
         
         if searchBar.text != ""{
             
-            switch segmentedControl.selectedSegmentIndex{
-            case 0:
-                filter = popularMovies?.results.filter{ $0.title.contains(searchBar.text!) } ?? []
-            case 1:
-                filter = topRatedMovies?.results.filter{ $0.title.contains(searchBar.text!) } ?? []
-            case 2:
-                filter = upcomingMovies?.results.filter{ $0.title.contains(searchBar.text!) } ?? []
-            default:
-                break
+            if isSearching{
+                filter = searchMovies?.results.filter{ $0.title.contains(searchBar.text!) } ?? []
             }
+            else{
+                switch segmentedControl.selectedSegmentIndex{
+                case 0:
+                    filter = popularMovies?.results.filter{ $0.title.contains(searchBar.text!) } ?? []
+                case 1:
+                    filter = topRatedMovies?.results.filter{ $0.title.contains(searchBar.text!) } ?? []
+                case 2:
+                    filter = upcomingMovies?.results.filter{ $0.title.contains(searchBar.text!) } ?? []
+                default:
+                    break
+                }
+            }
+            
             
             mainCollectionView.reloadData()
         }

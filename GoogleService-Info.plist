@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>701183414859-rknatqv0k4638be2josb6m7gb6scue40.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.701183414859-rknatqv0k4638be2josb6m7gb6scue40</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBjmL-piI32qSXm65pvZG8jlXdBLf2liYk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>701183414859</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>Rb.RappiEx</string>
+	<key>PROJECT_ID</key>
+	<string>rappiex-5faf8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rappiex-5faf8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:701183414859:ios:af2627051cc0384f</string>
+	<key>DATABASE_URL</key>
+	<string>https://rappiex-5faf8.firebaseio.com</string>
+</dict>
+</plist>

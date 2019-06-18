@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		052D1E81C404167FFB078FD3 /* Pods_RappiExUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10EAEA6E5BD0B35E2001597E /* Pods_RappiExUITests.framework */; };
 		5C6309ECD1149C136F59FE8B /* Pods_RappiEx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9141037B743BA78F3B7EF176 /* Pods_RappiEx.framework */; };
+		9AA9106322B82F99007D40D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AA9106222B82F98007D40D1 /* GoogleService-Info.plist */; };
+		9AA9106422B82F9C007D40D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AA9106222B82F98007D40D1 /* GoogleService-Info.plist */; };
+		9AA9106622B82FC1007D40D1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AA9106222B82F98007D40D1 /* GoogleService-Info.plist */; };
 		9AF33F9D22B2C5790056BFA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF33F9C22B2C5790056BFA4 /* AppDelegate.swift */; };
 		9AF33F9F22B2C5790056BFA4 /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AF33F9E22B2C5790056BFA4 /* MainController.swift */; };
 		9AF33FA222B2C5790056BFA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AF33FA022B2C5790056BFA4 /* Main.storyboard */; };
@@ -66,6 +69,7 @@
 		272D05CCBFF75CDA1EB0EAD8 /* Pods-RappiExUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiExUITests.debug.xcconfig"; path = "Target Support Files/Pods-RappiExUITests/Pods-RappiExUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8CC7476AD9953679DCD54392 /* Pods-RappiEx.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RappiEx.release.xcconfig"; path = "Target Support Files/Pods-RappiEx/Pods-RappiEx.release.xcconfig"; sourceTree = "<group>"; };
 		9141037B743BA78F3B7EF176 /* Pods_RappiEx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RappiEx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9AA9106222B82F98007D40D1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9AF33F9922B2C5790056BFA4 /* RappiEx.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RappiEx.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AF33F9C22B2C5790056BFA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AF33F9E22B2C5790056BFA4 /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		9AF33F9022B2C5790056BFA4 = {
 			isa = PBXGroup;
 			children = (
+				9AA9106222B82F98007D40D1 /* GoogleService-Info.plist */,
 				9AF33F9B22B2C5790056BFA4 /* RappiEx */,
 				9AF33FB322B2C57B0056BFA4 /* RappiExTests */,
 				9AF33FBE22B2C57B0056BFA4 /* RappiExUITests */,
@@ -358,6 +363,7 @@
 				9AF3401A22B311F80056BFA4 /* MainCell.xib in Resources */,
 				9AF33FA222B2C5790056BFA4 /* Main.storyboard in Resources */,
 				9AF3402322B440DB0056BFA4 /* LoadingView.xib in Resources */,
+				9AA9106322B82F99007D40D1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +371,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AA9106422B82F9C007D40D1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,6 +379,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AA9106622B82FC1007D40D1 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

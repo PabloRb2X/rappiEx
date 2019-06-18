@@ -5,6 +5,8 @@ def frameworks_pods
    pod 'Alamofire', '4.7.3'
    pod 'ObjectMapper', '3.4.1'
    pod 'AlamofireObjectMapper', '5.2.0'
+   #pod 'GoogleAPIClientForREST/YouTube'
+   #pod 'Google/SignIn'
 end
 
 target 'RappiEx' do
